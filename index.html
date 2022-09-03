@@ -13,7 +13,19 @@
   </head>
   <body>
     <header>
-        <h1>Weather</h1>
+       <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+        <div class="tittle" >
+            <h1 id="headtittle">Tiempo</h1>   
+        </div>
+    <div class="button r" id="button-1">
+                <input type="checkbox" class="checkbox" onchange="toggleLanguage(this)"/>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+              </div>
+            </div>
+        </div>
+    </nav> 
     </header>
 <div class="container">
     <div class="row g-3">
@@ -23,7 +35,7 @@
                 <div class="weather">
                     <div class="data"> 
                         <div class="citytemp"> 
-                            <h2 class="city">Almeria</h2>    
+                            <h3 class="city">Almeria</h3>    
                             <h1 class="temp">35°C</h1>
                         </div>                
                         <div class="icondesc"> 
@@ -32,8 +44,8 @@
                         </div>            
                     </div>
                     <div class="data"> 
-                        <div class="humidity">Humidity: 60%</div>
-                        <div class="wind">Wind speed: 6.2 km/h</div>
+                        <div class="humidity" id="humedad">Humedad: </div><div class="humidity" > 60%</div>
+                        <div class="wind" id="viento">Wind speed: 6.2 km/h</div>
                     </div>
                 </div>  
                 <div class="future">
@@ -73,7 +85,7 @@
                 <div class="weather">
                     <div class="data"> 
                         <div class="citytemp"> 
-                            <h2 class="city">Chirivel</h2>    
+                            <h3 class="city">Chirivel</h3>    
                             <h1 class="temp">32°C</h1>
                         </div>                
                         <div class="icondesc"> 
@@ -122,7 +134,7 @@
                 <div class="weather">
                     <div class="data"> 
                         <div class="citytemp"> 
-                            <h2 class="city">Málaga</h2>    
+                            <h3 class="city">Málaga</h3>    
                             <h1 class="temp">32°C</h1>
                         </div>                
                         <div class="icondesc"> 
@@ -171,7 +183,7 @@
                 <div class="weather">
                     <div class="data"> 
                         <div class="citytemp"> 
-                            <h2 class="city">Middletown</h2>    
+                            <h3 class="city">Middletown</h3>    
                             <h1 class="temp">32°C</h1>
                         </div>                
                         <div class="icondesc"> 
