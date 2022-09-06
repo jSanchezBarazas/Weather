@@ -1,23 +1,31 @@
+:root{
+  --backcolor : #005484;
+  --iconbackcolor : rgba(130, 192, 237, 0.342);
+  --fontcolor : #ddd;
+}
 
 body{
   justify-content: center;
   align-items: center;
-  background: #333;
-  font-family: 'Roboto', sans-serif;
+  background: rgb(126, 126, 126);
+  font-family: 'Barlow', sans-serif;
 }
 h1{
-  color: #eee;
+  color: var(--fontcolor);
 }
 .container {
   margin: 0;
 }
-.temp{
-  color:#333
+
+.container {
+    padding-top: 12px;
 }
+
 .card {
-  background: #ddd;
-  border-radius: 20px;
-  color: #333;
+  background: var(--backcolor);  
+  border-top-left-radius : 20px;
+  border-top-right-radius : 20px;
+  color: var(--fontcolor);
 }
 .weather{
   padding: 1em;
@@ -29,28 +37,125 @@ h1{
 .citytemp{
   float: left;    
   width: 50%;
-
+  height: 130px;
 }
+.citytemp{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 50% 25%;
+  grid-template-areas: 
+      "A"
+      "B"
+      "C";
+}
+
+.A{
+  grid-area: A;
+}
+
+.B{
+  grid-area: B;
+  vertical-align: middle;
+}
+.C{
+  grid-area: C;
+}
+
+.icon{
+  /* float: left; */
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
 .icondesc{
   float: left; 
   width: 50%;
   text-align: center;
+  height: 130px;
+}
+.icondesc{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75% 25%;
+  grid-template-areas: 
+      "D"
+      "E";
+}
+
+.D{
+  grid-area: D;
+  align-self: center;
+}
+
+.E{
+  grid-area: E;
+}
+
+
+.extradata{
+  float: left;    
+  width: 50%;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.extradata{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+      "F"
+      "G";
+
+}
+.extradata2{
+  float: left;    
+  width: 50%;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.extradata2{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+      "H"
+      "I";
+
 }
 .days{
   float:left;
   width: 20%;
   border-right: 1px solid #eef;
   padding: 0.5em;
+  background-color: var(--iconbackcolor); ;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 50% 25%;
+  grid-template-areas: 
+      "J"
+      "K"
+      "L";
 }
+
 .lday{
   float:right;
   width: 20%;
   padding: 0.5em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 50% 25%;
+  grid-template-areas: 
+      "J"
+      "K"
+      "L";
+      background-color: var(--iconbackcolor); ;
 }
 
 .future{
   text-align: center; 
-  color :#555
+  color :#ddd
+;
+  border: 1px solid #eef;
 }
 
 h6{
@@ -185,3 +290,6 @@ margin: 10px 15px 10px 0;
   transition: 0.3s ease all;
 }
 
+.icon-text{
+  margin-left:   5px;
+}

@@ -4,10 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="./scripts/script.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Weather</title>
   </head>
@@ -19,7 +20,7 @@
             <h1 id="headtittle">Tiempo</h1>   
         </div>
     <div class="button r" id="button-1">
-                <input type="checkbox" class="checkbox" onchange="toggleLanguage(this)"/>
+                <input id="chkUnit" type="checkbox" class="checkbox" onchange="toggleLanguage(this)"/>
                 <div class="knobs"></div>
                 <div class="layer"></div>
               </div>
@@ -31,201 +32,200 @@
     <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card">
-                <img class="card-img-top" src="./images/almeria/almeria1.jpg" alt="Card image">
-                <div class="weather">
-                    <div class="data"> 
+                <img class="card-img-top" src="./images/almeria/almeria2.jpg" alt="Card image">
+                <div class="container">
                         <div class="citytemp"> 
-                            <h3 class="city">Almeria</h3>    
-                            <h1 class="temp">35°C</h1>
+                            <div class="A"> <h3 class="city" id="ciudad1">---</h3>    </div>
+                            <div class="B"> <h1 class="temp" id="temp1">35°C</h1></div>
+                            <div class="C"> <h4 id = "feels1">35°C</h4> </div>
                         </div>                
                         <div class="icondesc"> 
-                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" class="icon" />
-                            <div class="description">Cloudy</div>
+                            <div class="D"> <img src="" alt="" class="iconbig" id="icon1"/></div>
+                            <div class="E"> <h6 id="desc1">Cloudy</h6></div>
                         </div>            
-                    </div>
-                    <div class="data"> 
-                        <div class="humidity" id="humedad">Humedad: </div><div class="humidity" > 60%</div>
-                        <div class="wind" id="viento">Wind speed: 6.2 km/h</div>
-                    </div>
+                        <div class="extradata">
+                            <div class="F"> 
+                                <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="humedad1">Humdad: </h7> 
+                            </div>
+                            <div class="G"> 
+                                <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="viento1">Wind speed: 6.2 km/h</h7>
+                            </div>
+                        </div>
+                        <div class="extradata2">
+                            <div class="H"> 
+                                <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="sunrise1"></h7> 
+                            </div>
+                            <div class="I"> 
+                                <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
+                                <h7 class="icon-text" id="sunset1"></h7>
+                            </div>
+                        </div>
                 </div>  
-                <div class="future">
+                <div class="future">                    
                     <div class="days">
-                        09/03
-                        <img src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
-                        <h6>35°C</h6>
+                        <div class="J">
+                            <h6 id="day11"></h6>
+                        </div>
+                        <div class="K">
+                            <div><img id="icon11" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" /></div>
+                        </div>
+                        <div class="L">
+                            <h6 id="temp11">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/04
-                        <img src="http://openweathermap.org/img/wn/02d.png" alt="" class="icon" />
-                        <h6>31°C</h6>
+                        <div class="J">
+                            <h6 id="day12"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon12" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp12">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/05
-                        <img src="http://openweathermap.org/img/wn/03d.png" alt="" class="icon" />
-                        <h6>29°C</h6>
+                        <div class="J">
+                            <h6 id="day13"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon13" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp13">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/06
-                        <img src="http://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
-                        <h6>25°C</h6>
+                        <div class="J">
+                            <h6 id="day14"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon14" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp14">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="lday">
-                        09/07
-                        <img src="http://openweathermap.org/img/wn/09d.png" alt="" class="icon" />
-                        <h6>24°C</h6>
+                        <div class="J">
+                            <h6 id="day15"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon15" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp15">35°C</h6>
+                        </div>                        
                     </div>
                 </div> 
             </div>
 
-        </div>   
-
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-                <img class="card-img-top" src="./images/chirivel/chirivel1.jpg" alt="Card image">
-                <div class="weather">
-                    <div class="data"> 
-                        <div class="citytemp"> 
-                            <h3 class="city">Chirivel</h3>    
-                            <h1 class="temp">32°C</h1>
-                        </div>                
-                        <div class="icondesc"> 
-                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" class="icon" />
-                            <div class="description">Cloudy</div>
-                        </div>            
-                    </div>
-                    <div class="data"> 
-                        <div class="humidity">Humidity: 60%</div>
-                        <div class="wind">Wind speed: 6.2 km/h</div>
-                    </div>
-                </div>  
-                <div class="future">
-                    <div class="days">
-                        09/03
-                        <img src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
-                        <h6>35°C</h6>
-                    </div>
-                    <div class="days">
-                        09/04
-                        <img src="http://openweathermap.org/img/wn/02d.png" alt="" class="icon" />
-                        <h6>31°C</h6>
-                    </div>
-                    <div class="days">
-                        09/05
-                        <img src="http://openweathermap.org/img/wn/03d.png" alt="" class="icon" />
-                        <h6>29°C</h6>
-                    </div>
-                    <div class="days">
-                        09/06
-                        <img src="http://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
-                        <h6>25°C</h6>
-                    </div>
-                    <div class="lday">
-                        09/07
-                        <img src="http://openweathermap.org/img/wn/09d.png" alt="" class="icon" />
-                        <h6>24°C</h6>
-                    </div>
-                </div> 
-            </div>
-
-        </div>   
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-                <img class="card-img-top" src="./images/malaga/malaga1.jpg" alt="Card image">
-                <div class="weather">
-                    <div class="data"> 
-                        <div class="citytemp"> 
-                            <h3 class="city">Málaga</h3>    
-                            <h1 class="temp">32°C</h1>
-                        </div>                
-                        <div class="icondesc"> 
-                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" class="icon" />
-                            <div class="description">Cloudy</div>
-                        </div>            
-                    </div>
-                    <div class="data"> 
-                        <div class="humidity">Humidity: 60%</div>
-                        <div class="wind">Wind speed: 6.2 km/h</div>
-                    </div>
-                </div>  
-                <div class="future">
-                    <div class="days">
-                        09/03
-                        <img src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
-                        <h6>35°C</h6>
-                    </div>
-                    <div class="days">
-                        09/04
-                        <img src="http://openweathermap.org/img/wn/02d.png" alt="" class="icon" />
-                        <h6>31°C</h6>
-                    </div>
-                    <div class="days">
-                        09/05
-                        <img src="http://openweathermap.org/img/wn/03d.png" alt="" class="icon" />
-                        <h6>29°C</h6>
-                    </div>
-                    <div class="days">
-                        09/06
-                        <img src="http://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
-                        <h6>25°C</h6>
-                    </div>
-                    <div class="lday">
-                        09/07
-                        <img src="http://openweathermap.org/img/wn/09d.png" alt="" class="icon" />
-                        <h6>24°C</h6>
-                    </div>
-                </div> 
-            </div>
-
-        </div>  
-        <div class="col-12 col-md-6 col-lg-4">
             <div class="card">
                 <img class="card-img-top" src="./images/middletown/middletown1.jpg" alt="Card image">
-                <div class="weather">
-                    <div class="data"> 
+                <div class="container">
                         <div class="citytemp"> 
-                            <h3 class="city">Middletown</h3>    
-                            <h1 class="temp">32°C</h1>
+                            <div class="A"> <h3 class="city" id="ciudad2">---</h3>    </div>
+                            <div class="B"> <h1 class="temp" id="temp2">35°C</h1></div>
+                            <div class="C"> <h4 id = "feels2">35°C</h4> </div>
                         </div>                
                         <div class="icondesc"> 
-                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" class="icon" />
-                            <div class="description">Cloudy</div>
+                            <div class="D"> <img src="" alt="" class="iconbig" id="icon2"/></div>
+                            <div class="E"> <h6 id="desc2">Cloudy</h6></div>
                         </div>            
-                    </div>
-                    <div class="data"> 
-                        <div class="humidity">Humidity: 60%</div>
-                        <div class="wind">Wind speed: 6.2 km/h</div>
-                    </div>
+                        <div class="extradata">
+                            <div class="F"> 
+                                <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="humedad2">Humdad: </h7> 
+                            </div>
+                            <div class="G"> 
+                                <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="viento2">Wind speed: 6.2 km/h</h7>
+                            </div>
+                        </div>
+                        <div class="extradata2">
+                            <div class="H"> 
+                                <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
+                                <h7 class="icon-text" id="sunrise2"></h7> 
+                            </div>
+                            <div class="I"> 
+                                <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
+                                <h7 class="icon-text" id="sunset2"></h7>
+                            </div>
+                        </div>
                 </div>  
-                <div class="future">
+                <div class="future">                    
                     <div class="days">
-                        09/03
-                        <img src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
-                        <h6>35°C</h6>
+                        <div class="J">
+                            <h6 id="day21"></h6>
+                        </div>
+                        <div class="K">
+                            <div><img id="icon21" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" /></div>
+                        </div>
+                        <div class="L">
+                            <h6 id="temp21">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/04
-                        <img src="http://openweathermap.org/img/wn/02d.png" alt="" class="icon" />
-                        <h6>31°C</h6>
+                        <div class="J">
+                            <h6 id="day22"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon22" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp22">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/05
-                        <img src="http://openweathermap.org/img/wn/03d.png" alt="" class="icon" />
-                        <h6>29°C</h6>
+                        <div class="J">
+                            <h6 id="day23"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon23" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp23">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="days">
-                        09/06
-                        <img src="http://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
-                        <h6>25°C</h6>
+                        <div class="J">
+                            <h6 id="day24"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon24" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp24">35°C</h6>
+                        </div>                        
                     </div>
+
                     <div class="lday">
-                        09/07
-                        <img src="http://openweathermap.org/img/wn/09d.png" alt="" class="icon" />
-                        <h6>24°C</h6>
+                        <div class="J">
+                            <h6 id="day25"></h6>
+                        </div>
+                        <div class="K">
+                            <img id="icon25" src="http://openweathermap.org/img/wn/01d.png" alt="" class="icon" />
+                        </div>
+                        <div class="L">
+                            <h6 id="temp25">35°C</h6>
+                        </div>                        
                     </div>
                 </div> 
             </div>
 
-        </div>  
+        </div>   
+
+        
     </div>   
 </div> 
 </div>
@@ -239,5 +239,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+    <script src="./scripts/script.js"></script>
+
   </body>
 </html>
