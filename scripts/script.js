@@ -26,9 +26,13 @@ var localization = {
     if (s.checked){
       weather.fetchWeather("36.83","-2.46",locale,"imperial","1")
       weather.fetchWeather("40.06","-85.54",locale,"imperial","2");
+      weather.fetchWeather("37.59","-2.26",locale,"imperial","3");
+      weather.fetchWeather("36.71","-4.41",locale,"imperial","4");
     }else{
       weather.fetchWeather("36.83","-2.46",locale,"metric","1")
       weather.fetchWeather("40.06","-85.54",locale,"metric","2");
+      weather.fetchWeather("37.59","-2.26",locale,"metric","3");
+      weather.fetchWeather("36.71","-4.41",locale,"metric","4");
     }
 }
 
@@ -57,18 +61,19 @@ let weather ={
   },
 
   displayWeather: function(data,num,unit, locale){
-    const {sunrise, sunset, name}=data.city
+    const {sunrise, sunset, name, country}=data.city
     const {temp, feels_like, humidity}=data.list[0].main
     const {description, icon}=data.list[0].weather[0]
     const {speed}=data.list[0].wind
     let sunriseTime=''
     let sunsetTime=''
-    if (locale='es'){
+    console.log(locale)
+    if (country=='US'){
+      sunriseTime = (new Date((sunrise)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York'})
+      sunsetTime = (new Date((sunset)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York'})
+    }else{
       sunriseTime = (new Date((sunrise)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid'})
       sunsetTime = (new Date((sunset)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid'})
-    }else{
-      sunriseTime = (new Date((sunrise)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New York'})
-      sunsetTime = (new Date((sunset)*1000)).toLocaleTimeString(locale,{hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New York'})
     }
     console.log(name)
 
@@ -77,7 +82,7 @@ let weather ={
     
     if (unit == 'metric'){
       displayUnit = '°C'
-      displaySpeed = 'km/h'
+      displaySpeed = 'm/s'
     }else{
       displayUnit = '°F'
       displaySpeed = 'mph'
