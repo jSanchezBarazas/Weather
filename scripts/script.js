@@ -326,7 +326,7 @@ function populateFutureHours(data, card, j, displayUnit, country, timezone) {
   let icon = data.list[j - 1].weather[0].icon
   let temp = data.list[j - 1].main.temp
 
-  document.getElementById('hour' + card + j).innerText = hour;// + ' ' + (j - 1) + ' ' + data.list[j-1].dt;
+  document.getElementById('hour' + card + j).innerText = hour;
   document.getElementById('iconHour' + card + j).src = "./icons/weather24/" + icon + ".png"
   document.getElementById('tempHour' + card + j).innerText = Math.round(temp) + displayUnit
 }
@@ -337,7 +337,7 @@ function populateFuture(data, card, day, displayUnit, index, locale, lang, timez
   let fecha = (new Date(date * 1000)).toLocaleString(lang, { weekday: 'short' })
   let icon = data.list[index].weather[0].icon
   let temp = data.list[index].main.temp
-  document.getElementById('day' + card + day).innerText = fecha.charAt(0).toUpperCase() + fecha.slice(1) ;//+ ' ' + index;// + ' ' + data.list[i].dt;
+  document.getElementById('day' + card + day).innerText = fecha.charAt(0).toUpperCase() + fecha.slice(1) ;
   document.getElementById('icon' + card + day).src = "./icons/weather24/" + icon + ".png"
   document.getElementById('temp' + card + day).innerText = Math.round(temp) + displayUnit
 }
@@ -352,13 +352,13 @@ let language = ''
 if ((locale) == 'en') {
   document.getElementById("chkUnit").checked = true;
   language = 'en'
-  getCards('../data/cities.json');
+  getCards('./data/cities.json');
 
 }
 else {
   language = 'es'
   document.getElementById("chkUnit").checked = false;
-  getCards('../data/ciudades.json');
+  getCards('./data/ciudades.json');
 }
 
 
