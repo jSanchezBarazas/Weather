@@ -1,8 +1,10 @@
 :root{
   --backcolor : #005484;
-  --iconbackcolor : rgba(130, 192, 237, 0.342);
+  --iconbackcolor : rgba(130, 192, 237, 0.5);
+  --iconhourbackcolor : rgba(130, 192, 237, 0.5);
   --fontcolor : #ddd;
 }
+
 * {
   box-sizing: border-box;
   font-family: 'Barlow', sans-serif;
@@ -17,6 +19,7 @@ body{
 .wrapper-grid{
   display: grid;
   grid-template-columns:repeat(auto-fit,20rem);
+  gap : 1.5rem;
   justify-content: center;
 }
 
@@ -42,7 +45,7 @@ h1{
   color: var(--fontcolor);
   overflow: hidden;
   box-shadow: 0px 2px 8px 0px var(#005484);
-  margin : 0.5rem
+
 }
 .weather{
   padding: 1em;
@@ -95,6 +98,20 @@ h1{
   width: 20%;
   padding: 0.5em;
   background-color: var(--iconbackcolor); ;
+}
+.hours{
+  float:left;
+  width: 20%;
+  border-right: 1px solid var(--backcolor);
+  padding: 0.5em;
+  background-color: var(--iconhourbackcolor); ;
+}
+
+.lhour{
+  float:right;
+  width: 20%;
+  padding: 0.5em;
+  background-color: var(--iconhourbackcolor); ;
 }
 
 .future{

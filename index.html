@@ -1,300 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Weather</title>
   </head>
   <body>
     <div class="header">
-    <div class="navbar">
-        <div class="tittle" >
-            <h1 id="headtittle">Tiempo</h1>   
+      <div class="navbar">
+        <div class="tittle">
+          <h1 id="headtittle">Tiempo</h1>
         </div>
         <div class="button r" id="button-1">
-            <input id="chkUnit" type="checkbox" class="checkbox" onchange="toggleLanguage(this)"/>
-            <div class="knobs"></div>
-            <div class="layer"></div>
+          <input
+            id="chkUnit"
+            type="checkbox"
+            class="checkbox"
+            onchange="chkUnit_toggle(this)"
+          />
+          <div class="knobs"></div>
+          <div class="layer"></div>
         </div>
+      </div>
     </div>
-</div>
-<div class="wrapper-grid">
-    <div class="card">
-        <img class="card-img-top" src="./images/almeria/almeria2.jpg" alt="Card image">
-        <div class="container">
-                <div class="citytemp"> 
-                    <h3 class="city" id="ciudad1">---</h3>    
-                     <h1 class="temp" id="temp1">35°C</h1>
-                     <h4 id = "feels1">35°C</h4> 
-                </div>                
-                <div class="icondesc"> 
-                     <img src="" alt="" class="iconbig" id="icon1"/>
-                     <h6 id="desc1">Cloudy</h6>
-                </div>            
-                <div class="extradata">
-                    <div>
-                        <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="humedad1">Humdad: </h7> 
-                    </div>
-                    <div>
-                        <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="viento1">6.2 km/h</h7>
-                    </div>
-                </div>
-                <div class="extradata2">
-                    <div>
-                        <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="sunrise1"></h7> 
-                    </div>
-                    <div>
-                        <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
-                        <h7 class="icon-text" id="sunset1"></h7>
-                    </div>
-                </div>
-        </div>  
-        <div class="future">                    
-            <div class="days">
-                    <h6 id="day11"></h6>
-                    <div><img id="icon11" src="./icons/weather24/01d.png" alt="" class="icon" /></div>
-                    <h6 id="temp11">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day12"></h6>
-                    <img id="icon12" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp12">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day13"></h6>
-                    <img id="icon13" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp13">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day14"></h6>
-                    <img id="icon14" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp14">35°C</h6>
-            </div>
-
-            <div class="lday">
-                    <h6 id="day15"></h6>
-                    <img id="icon15" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp15">35°C</h6>
-            </div>
-        </div> 
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="./images/middletown/middletown1.jpg" alt="Card image">
-        <div class="container">
-                <div class="citytemp"> 
-                    <h3 class="city" id="ciudad2">---</h3>    
-                     <h1 class="temp" id="temp2">35°C</h1>
-                     <h4 id = "feels2">35°C</h4> 
-                </div>                
-                <div class="icondesc"> 
-                     <img src="" alt="" class="iconbig" id="icon2"/>
-                     <h6 id="desc2">Cloudy</h6>
-                </div>            
-                <div class="extradata">
-                    <div>
-                        <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="humedad2">Humdad: </h7> 
-                    </div>
-                    <div>
-                        <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="viento2">6.2 km/h</h7>
-                    </div>
-                </div>
-                <div class="extradata2">
-                    <div>
-                        <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
-                        <h7 class="icon-text" id="sunrise2"></h7> 
-                    </div>
-                    <div>
-                        <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
-                        <h7 class="icon-text" id="sunset2"></h7>
-                    </div>
-                </div>
-        </div>  
-        <div class="future">                    
-            <div class="days">
-                    <h6 id="day21"></h6>
-                    <div><img id="icon21" src="./icons/weather24/01d.png" alt="" class="icon" /></div>
-                    <h6 id="temp21">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day22"></h6>
-                    <img id="icon22" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp22">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day23"></h6>
-                    <img id="icon23" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp23">35°C</h6>
-            </div>
-
-            <div class="days">
-                    <h6 id="day24"></h6>
-                    <img id="icon24" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp24">35°C</h6>
-            </div>
-
-            <div class="lday">
-                    <h6 id="day25"></h6>
-                    <img id="icon25" src="./icons/weather24/01d.png" alt="" class="icon" />
-                    <h6 id="temp25">35°C</h6>
-            </div>
-        </div> 
-    </div>
-
-            <div class="card">
-                <img class="card-img-top" src="./images/chirivel/chirivel2.jpg" alt="Card image">
-                <div class="container">
-                        <div class="citytemp"> 
-                            <h3 class="city" id="ciudad3">---</h3>    
-                             <h1 class="temp" id="temp3">35°C</h1>
-                             <h4 id = "feels3">35°C</h4> 
-                        </div>                
-                        <div class="icondesc"> 
-                             <img src="" alt="" class="iconbig" id="icon3"/>
-                             <h6 id="desc3">Cloudy</h6>
-                        </div>            
-                        <div class="extradata">
-                            <div>
-                                <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="humedad3">Humdad: </h7> 
-                            </div>
-                            <div>
-                                <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="viento3">6.2 km/h</h7>
-                            </div>
-                        </div>
-                        <div class="extradata2">
-                            <div>
-                                <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="sunrise3"></h7> 
-                            </div>
-                            <div>
-                                <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
-                                <h7 class="icon-text" id="sunset3"></h7>
-                            </div>
-                        </div>
-                </div>  
-                <div class="future">                    
-                    <div class="days">
-                            <h6 id="day31"></h6>
-                            <div><img id="icon31" src="./icons/weather24/01d.png" alt="" class="icon" /></div>
-                            <h6 id="temp31">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day32"></h6>
-                            <img id="icon32" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp32">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day33"></h6>
-                            <img id="icon33" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp33">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day34"></h6>
-                            <img id="icon34" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp34">35°C</h6>
-                    </div>
-    
-                    <div class="lday">
-                            <h6 id="day35"></h6>
-                            <img id="icon35" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp35">35°C</h6>
-                    </div>
-                </div> 
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="./images/malaga/malaga1.jpg" alt="Card image">
-                <div class="container">
-                        <div class="citytemp"> 
-                            <h3 class="city" id="ciudad4">---</h3>    
-                             <h1 class="temp" id="temp4">35°C</h1>
-                             <h4 id = "feels4">35°C</h4> 
-                        </div>                
-                        <div class="icondesc"> 
-                             <img src="" alt="" class="iconbig" id="icon4"/>
-                             <h6 id="desc4">Cloudy</h6>
-                        </div>            
-                        <div class="extradata">
-                            <div>
-                                <img class ="icon" src="./icons/humidity24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="humedad4">Humdad: </h7> 
-                            </div>
-                            <div>
-                                <img class ="icon" src="./icons/viento24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="viento4">6.2 km/h</h7>
-                            </div>
-                        </div>
-                        <div class="extradata2">
-                            <div>
-                                <img class ="icon" src="./icons/sunrise24.png" alt="" class="icon" /> 
-                                <h7 class="icon-text" id="sunrise4"></h7> 
-                            </div>
-                            <div>
-                                <img class ="icon" src="./icons/sunset24.png" alt="" class="icon" />
-                                <h7 class="icon-text" id="sunset4"></h7>
-                            </div>
-                        </div>
-                </div>  
-                <div class="future">                    
-                    <div class="days">
-                            <h6 id="day41"></h6>
-                            <div><img id="icon41" src="./icons/weather24/01d.png" alt="" class="icon" /></div>
-                            <h6 id="temp41">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day42"></h6>
-                            <img id="icon42" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp42">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day43"></h6>
-                            <img id="icon43" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp43">35°C</h6>
-                    </div>
-    
-                    <div class="days">
-                            <h6 id="day44"></h6>
-                            <img id="icon44" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp44">35°C</h6>
-                    </div>
-    
-                    <div class="lday">
-                            <h6 id="day45"></h6>
-                            <img id="icon45" src="./icons/weather24/01d.png" alt="" class="icon" />
-                            <h6 id="temp45">35°C</h6>
-                    </div>
-                </div> 
-            </div>
-    
-    
+    <div class="wrapper-grid" id="wrapper-grid">
         
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
@@ -302,6 +57,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
     <script src="./scripts/script.js"></script>
-
   </body>
 </html>

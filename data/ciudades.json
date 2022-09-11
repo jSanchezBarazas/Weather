@@ -1,0 +1,36 @@
+{
+    "list":[
+        {
+            "ciudad":"Almeria",
+            "lat":36.83,
+            "lon":-2.46
+        },
+        {
+            "ciudad":"Chirivel",
+            "lat":37.59,
+            "lon":-2.26
+        },
+        {
+            "ciudad":"Juaida",
+            "lat":36.86,
+            "lon":-2.41
+        },
+        {
+            "ciudad":"Malaga",
+            "lat":36.71,
+            "lon":-4.41
+        },
+        {
+            "ciudad":"Middletown",
+            "lat":40.06,
+            "lon":-85.54
+        },
+        {
+            "ciudad":"Santirso",
+            "lat":42.24,
+            "lon":-7.56
+        }
+
+    ] 
+
+}
