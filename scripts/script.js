@@ -150,7 +150,7 @@ function displayCards(cities) {
     var target = document.getElementById("wrapper-grid");
     let tempHTML = ''
     tempHTML = '<div class="card" city="' + i + '" lat="' + cities[i].lat + '" lon="' + cities[i].lon + '"> ' +
-      '<img class="card-img-top" src="./images/' + cities[i].ciudad + '/' + random(2) + '.jpg" alt="Card image">' +
+      '<img class="card-img-top" src="./images/' + (cities[i].ciudad).toLowerCase() + '/' + random(2) + '.jpg" alt="Card image">' +
       '                  <div class="container"> ' +
       '        <div class="citytemp"> ' +
       '            <h3 class="city" id="ciudad' + i + '">' + cities[i].ciudad + '</h3>    ' +
