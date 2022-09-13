@@ -307,16 +307,20 @@ function displayForecast(data, num, unit, lang, displayUnit) {
     }
   }
   populateFuture(data, num, 1, displayUnit, index, locale, lang, timezone);
-  populateFuture(data, num, 2, displayUnit, index+8, locale, lang, timezone);
-  populateFuture(data, num, 3, displayUnit, index+16, locale, lang, timezone);
-  populateFuture(data, num, 4, displayUnit, index+24, locale, lang, timezone);
-  populateFuture(data, num, 5, displayUnit, index+32, locale, lang, timezone);
+  populateFuture(data, num, 2, displayUnit, index + 8, locale, lang, timezone);
+  populateFuture(data, num, 3, displayUnit, index + 16, locale, lang, timezone);
+  populateFuture(data, num, 4, displayUnit, index + 24, locale, lang, timezone);
+  if ((index + 32) < 40) {
+    populateFuture(data, num, 5, displayUnit, index + 32, locale, lang, timezone);
+  } else {
+    populateFuture(data, num, 5, displayUnit, 39, locale, lang, timezone);
+  }
 
 }
 
 function populateFutureHours(data, card, j, displayUnit, country, timezone) {
   let hour;
-  let dt_txt = data.list[j-1].dt_txt;
+  let dt_txt = data.list[j - 1].dt_txt;
   const date = data.list[j - 1].dt;
   if (country == 'US') {
     hour = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: true, timeZone: 'America/New_York' })
@@ -325,7 +329,8 @@ function populateFutureHours(data, card, j, displayUnit, country, timezone) {
   }
   let icon = data.list[j - 1].weather[0].icon
   let temp = data.list[j - 1].main.temp
-
+  hour = hour.replace(".", "");
+  hour = hour.replace(".", "").toUpperCase();
   document.getElementById('hour' + card + j).innerText = hour;
   document.getElementById('iconHour' + card + j).src = "./icons/weather24/" + icon + ".png"
   document.getElementById('tempHour' + card + j).innerText = Math.round(temp) + displayUnit
@@ -337,7 +342,7 @@ function populateFuture(data, card, day, displayUnit, index, locale, lang, timez
   let fecha = (new Date(date * 1000)).toLocaleString(lang, { weekday: 'short' })
   let icon = data.list[index].weather[0].icon
   let temp = data.list[index].main.temp
-  document.getElementById('day' + card + day).innerText = fecha.charAt(0).toUpperCase() + fecha.slice(1) ;
+  document.getElementById('day' + card + day).innerText = fecha.charAt(0).toUpperCase() + fecha.slice(1);
   document.getElementById('icon' + card + day).src = "./icons/weather24/" + icon + ".png"
   document.getElementById('temp' + card + day).innerText = Math.round(temp) + displayUnit
 }
