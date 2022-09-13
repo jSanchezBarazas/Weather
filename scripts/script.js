@@ -20,7 +20,9 @@ function getCities(api_url) {
   )
 }
 
-
+function formatHoursTo12(date) {
+  return date.getHours() % 12 || 12;
+}
 
 function random(number) {
   return Math.floor(Math.random() * number) + 1;
@@ -244,13 +246,19 @@ function displayWeather(lat, lon, data, num, unit, lang) {
   const { speed, deg } = data.wind
   let sunriseTime = ''
   let sunsetTime = ''
+  let timeSunrise = new Date((sunrise) * 1000);
+  let timeSunset = new Date((sunset) * 1000);
   if (country == 'US') {
-    sunriseTime = (new Date((sunrise) * 1000)).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' })
-    sunsetTime = (new Date((sunset) * 1000)).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' })
+    sunriseTime = timeSunrise.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' });
+    sunsetTime = timeSunset.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' });
   } else {
-    sunriseTime = (new Date((sunrise) * 1000)).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
-    sunsetTime = (new Date((sunset) * 1000)).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
+    sunriseTime = timeSunrise.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
+    sunsetTime = timeSunset.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
   }
+
+  sunriseTime = sunriseTime.substring(0, sunriseTime.indexOf(" ")) + ' AM';
+  sunsetTime = sunsetTime.substring(0, sunsetTime.indexOf(" ")) + ' PM';
+
 
   let displayUnit = ''
   let displaySpeed = ''
@@ -322,11 +330,24 @@ function populateFutureHours(data, card, j, displayUnit, country, timezone) {
   let hour;
   let dt_txt = data.list[j - 1].dt_txt;
   const date = data.list[j - 1].dt;
+
+
   if (country == 'US') {
     hour = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: true, timeZone: 'America/New_York' })
+    hora = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: false, timeZone: 'America/New_York' })
   } else {
     hour = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
+    hora = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: false, timeZone: 'America/New_York' })
   }
+  console.log(hora);
+  if (hora > 12) {
+    sistema = ' PM'
+  } else {
+    sistema = ' AM'
+  }
+
+  hour = hour.substring(0, hour.indexOf(" ")) + sistema;
+
   let icon = data.list[j - 1].weather[0].icon
   let temp = data.list[j - 1].main.temp
   hour = hour.replace(".", "");
