@@ -339,7 +339,6 @@ function populateFutureHours(data, card, j, displayUnit, country, timezone) {
     hour = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: true, timeZone: 'Europe/Madrid' })
     hora = (new Date(date * 1000)).toLocaleTimeString(locale, { hour: 'numeric', hour12: false, timeZone: 'America/New_York' })
   }
-  console.log(hora);
   if (hora > 12) {
     sistema = ' PM'
   } else {
@@ -372,6 +371,36 @@ function populateFuture(data, card, day, displayUnit, index, locale, lang, timez
 const userLocale = navigator.languages && navigator.languages.length ? navigator.languages[0] : navigator.language;
 
 const locale = userLocale[0] + userLocale[1]
+
+let seasson = ''
+month = (new Date()).toLocaleDateString(locale, { month: "2-digit" });
+day = (new Date()).toLocaleDateString(locale, { day: "2-digit" });
+if (month === '04' || month === '05') {
+  cseasson = ('spring');
+} else if ((day >= 20 && month === '03') || (day < 21 && month === '06')) {
+  seasson = ('spring');
+} else if (month === '07' || month === '08') {
+  seasson = ("summer");
+} else if ((day >= 21 && month === '06') || (day < 22 && month === '09')) {
+  seasson = ("summer");
+} else if (month === '10' || month === '11') {
+  seasson = ("autumn");
+} else if ((day >= 22 && month === '09') || (day < 21 && month === '12')) {
+  seasson = ("autumn");
+} else if (month === 'Oct' || month === 'Nov') {
+  seasson = ("winter");
+} else if ((day >= 21 && month === '12') || (day < 20 && month === '03')) {
+  seasson = ("winter");
+}
+
+var link = document.querySelector("link[rel~='icon']");
+if (!link) {
+  link = document.createElement('link');
+  link.rel = 'icon';
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
+link.href = './icons/' + seasson + '.png'
+
 
 let language = ''
 
