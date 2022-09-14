@@ -20,6 +20,26 @@ function getCities(api_url) {
   )
 }
 
+function getSeason(month, day) {
+  if (month === '04' || month === '05') {
+    return ('spring');
+  } else if ((day >= 20 && month === '03') || (day < 21 && month === '06')) {
+    return ('spring');
+  } else if (month === '07' || month === '08') {
+    return ("summer");
+  } else if ((day >= 21 && month === '06') || (day < 22 && month === '09')) {
+    return ("summer");
+  } else if (month === '10' || month === '11') {
+    return ("autumn");
+  } else if ((day >= 22 && month === '09') || (day < 21 && month === '12')) {
+    return ("autumn");
+  } else if (month === 'Oct' || month === 'Nov') {
+    return ("winter");
+  } else if ((day >= 21 && month === '12') || (day < 20 && month === '03')) {
+    return ("winter");
+  }
+
+}
 function formatHoursTo12(date) {
   return date.getHours() % 12 || 12;
 }
@@ -152,7 +172,7 @@ function displayCards(cities) {
     var target = document.getElementById("wrapper-grid");
     let tempHTML = ''
     tempHTML = '<div class="card" city="' + i + '" lat="' + cities[i].lat + '" lon="' + cities[i].lon + '"> ' +
-      '<img class="card-img-top" src="./images/' + (cities[i].ciudad).toLowerCase() + '/' + random(2) + '.jpg" alt="Card image">' +
+      '<img class="card-img-top" src="./images/' + (cities[i].ciudad).toLowerCase() + '/' + random(3) + '.jpg" alt="Card image">' +
       '                  <div class="container"> ' +
       '        <div class="citytemp"> ' +
       '            <h3 class="city" id="ciudad' + i + '">' + cities[i].ciudad + '</h3>    ' +
@@ -375,23 +395,8 @@ const locale = userLocale[0] + userLocale[1]
 let seasson = ''
 month = (new Date()).toLocaleDateString(locale, { month: "2-digit" });
 day = (new Date()).toLocaleDateString(locale, { day: "2-digit" });
-if (month === '04' || month === '05') {
-  cseasson = ('spring');
-} else if ((day >= 20 && month === '03') || (day < 21 && month === '06')) {
-  seasson = ('spring');
-} else if (month === '07' || month === '08') {
-  seasson = ("summer");
-} else if ((day >= 21 && month === '06') || (day < 22 && month === '09')) {
-  seasson = ("summer");
-} else if (month === '10' || month === '11') {
-  seasson = ("autumn");
-} else if ((day >= 22 && month === '09') || (day < 21 && month === '12')) {
-  seasson = ("autumn");
-} else if (month === 'Oct' || month === 'Nov') {
-  seasson = ("winter");
-} else if ((day >= 21 && month === '12') || (day < 20 && month === '03')) {
-  seasson = ("winter");
-}
+
+let season = getSeason(month, day);
 
 var link = document.querySelector("link[rel~='icon']");
 if (!link) {

@@ -1,37 +1,37 @@
-:root{
-  --backcolor : #005484;
-  --iconbackcolor : rgba(130, 192, 237, 0.5);
-  --iconhourbackcolor : rgba(130, 192, 237, 0.5);
-  --fontcolor : #ddd;
+:root {
+  --backcolor: #005484;
+  --iconbackcolor: rgba(130, 192, 237, 0.5);
+  --iconhourbackcolor: rgba(130, 192, 237, 0.5);
+  --fontcolor: #ddd;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   margin: 0;
   padding: 0;
 }
-body{
+body {
   justify-content: center;
   align-items: center;
-  background: var(--fontcolor)
+  background: var(--fontcolor);
 }
-.wrapper-grid{
+.wrapper-grid {
   display: grid;
-  grid-template-columns:repeat(auto-fit,20rem);
-  gap : 1.5rem;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  gap: 1.5rem;
   justify-content: center;
 }
 
-#headtittle{
-  color : var(--backcolor);
+#headtittle {
+  color: var(--backcolor);
   font-weight: bolder;
 }
-.header{
+.header {
   padding: 10px;
 }
 
-h1{
+h1 {
   color: var(--fontcolor);
 }
 .container {
@@ -40,102 +40,96 @@ h1{
 }
 
 .card {
-  background: var(--backcolor);  
-  border-radius : 20px;
+  background: var(--backcolor);
+  border-radius: 20px;
   color: var(--fontcolor);
   overflow: hidden;
   box-shadow: 0px 2px 8px 0px var(#005484);
-
 }
-.weather{
+.weather {
   padding: 1em;
 }
-.citytemp{
-  float: left;    
+.citytemp {
+  float: left;
   width: 50%;
   height: 130px;
 }
 
-
-.icon{
+.icon {
   /* float: left; */
   margin-left: 5px;
   margin-bottom: 5px;
 }
 
-.icondesc{
-  float: left; 
+.icondesc {
+  float: left;
   width: 50%;
   text-align: center;
   height: 130px;
 }
 
-
-.extradata{
-  float: left;    
+.extradata {
+  float: left;
   width: 50%;
   height: 70px;
   margin-top: 10px;
 }
 
-.extradata2{
-  float: left;    
+.extradata2 {
+  float: left;
   width: 50%;
   height: 70px;
   margin-top: 10px;
 }
 
-.days{
-  float:left;
+.days {
+  float: left;
   width: 20%;
   border-right: 1px solid var(--backcolor);
   padding: 0.5em;
-  background-color: var(--iconbackcolor); ;
+  background-color: var(--iconbackcolor);
 }
 
-.lday{
-  float:right;
+.lday {
+  float: right;
   width: 20%;
   padding: 0.5em;
-  background-color: var(--iconbackcolor); ;
+  background-color: var(--iconbackcolor);
 }
-.hours{
-  float:left;
+.hours {
+  float: left;
   width: 20%;
   border-right: 1px solid var(--backcolor);
   padding: 0.5em;
-  background-color: var(--iconhourbackcolor); ;
+  background-color: var(--iconhourbackcolor);
 }
 
-.lhour{
-  float:right;
+.lhour {
+  float: right;
   width: 20%;
   padding: 0.5em;
-  background-color: var(--iconhourbackcolor); ;
+  background-color: var(--iconhourbackcolor);
 }
 
-.future{
-  text-align: center; 
-  color :#ddd;
+.future {
+  text-align: center;
+  color: #ddd;
   border: 1px solid var(--backcolor);
 }
 
-h6{
+h6 {
   font-weight: bold;
 }
 
-nav{
-background-color: #777;
+nav {
+  background-color: #777;
 }
 
-.tittle{
-width: 300px;
-height: 50px;
-margin: 10px 15px 10px 0;
+.tittle {
+  width: 300px;
+  height: 50px;
+  margin: 10px 15px 10px 0;
 }
-
-
-
 
 .toggle-button-cover {
   display: table-cell;
@@ -245,14 +239,27 @@ margin: 10px 15px 10px 0;
   background-color: #eefceb;
 }
 
-
 #button-1 .knobs,
 #button-1 .knobs:before,
 #button-1 .layer {
   transition: 0.3s ease all;
 }
 
-.icon-text{
-  margin-left:   5px;
+.icon-text {
+  margin-left: 5px;
 }
 
+.card::after {
+  content: "";
+
+  position: absolute;
+  left: -15rem;
+  right: -15rem;
+  bottom: -7rem;
+
+  background: #aaa;
+  height: 30%;
+  transform: perspective(10rem);
+  filter: blur(3rem);
+  opacity: 0.5;
+}
