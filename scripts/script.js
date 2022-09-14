@@ -404,7 +404,7 @@ if (!link) {
   link.rel = 'icon';
   document.getElementsByTagName('head')[0].appendChild(link);
 }
-link.href = './icons/' + seasson + '.png'
+link.href = './icons/' + season + '.png'
 
 
 let language = ''
